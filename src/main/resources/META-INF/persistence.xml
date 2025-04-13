@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="3.2" xmlns="https://jakarta.ee/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence https://jakarta.ee/xml/ns/persistence/persistence_3_2.xsd">
+  <persistence-unit name="IceCreamShopPU" transaction-type="RESOURCE_LOCAL">
+    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <class>org.logic.logic_classes.Action</class>
+    <class>org.logic.logic_classes.Flavor</class>
+    <class>org.logic.logic_classes.IceCream</class>
+    <class>org.logic.logic_classes.Invoice</class>
+    <class>org.logic.logic_classes.Orden</class>
+    <class>org.logic.logic_classes.Rol</class>
+    <class>org.logic.logic_classes.Size</class>
+    <class>org.logic.logic_classes.User</class>
+    <properties>
+      <property name="jakarta.persistence.jdbc.url" value="jdbc:mariadb://localhost:3306/IceCreamShop?serverTimezone=UTC"/>
+      <property name="jakarta.persistence.jdbc.user" value="admin"/>
+      <property name="jakarta.persistence.jdbc.driver" value="org.mariadb.jdbc.Driver"/>
+      <property name="jakarta.persistence.jdbc.password" value="+V$u].M¿r="/>
+      <property name="jakarta.persistence.schema-generation.database.action" value="create"/>
+
+         <property name="eclipselink.logging.level" value="SEVERE"/>
+
+    </properties>
+  </persistence-unit>
+</persistence>
