@@ -131,9 +131,9 @@ public class UserJpaController implements Serializable {
 
     User user;
 
-    try { user = (User ) query.getSingleResult(); } catch (NoResultException e) {
+    try { user = (User) query.getSingleResult(); } catch (NoResultException e) {
 
-        System.out.println("User not found");
+        System.out.println("User not found. Try again.");
         return null;
 
     }

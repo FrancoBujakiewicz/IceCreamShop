@@ -83,7 +83,7 @@ public class User implements Serializable {
 
     {
         boolean correctPasswd = BCrypt.checkpw(password, password_hash);
-        if(!correctPasswd){ System.out.println("Incorrect Password"); }
+        if(!correctPasswd){ System.out.print("Incorrect password. Try Again."); }
         return correctPasswd;
     }
 

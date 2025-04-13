@@ -17,7 +17,7 @@
       <property name="jakarta.persistence.jdbc.password" value="+V$u].M¿r="/>
       <property name="jakarta.persistence.schema-generation.database.action" value="create"/>
 
-         <property name="eclipselink.logging.level" value="SEVERE"/>
+         <property name="eclipselink.logging.level" value="SEVERE"/> <!-- To not show EL warnings in execution -->
 
     </properties>
   </persistence-unit>
