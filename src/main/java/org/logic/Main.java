@@ -2,6 +2,8 @@ package org.logic;
 
 import org.logic.logic_classes.Rol;
 import org.logic.logic_classes.User;
+
+import java.io.Console;
 import java.util.Scanner;
 
 public class Main {
@@ -10,6 +12,10 @@ public class Main {
     public static String password;
 
     public static void main (String[] args) throws Exception {
+
+        // Using Console class to censor passwords inputs and similar
+        // Comment this line if not works in your terminal or IDE
+        Console console = System.console(); if(console == null) { System.exit(1); }
 
         LogicController LogicCtl = new LogicController();
 
@@ -35,6 +41,10 @@ public class Main {
         System.out.println(" ");
 
         do {
+
+            // To censor password use this
+            // char[] passwordChars = console.readPassword("Password: ");
+            // password = new String(passwordChars);
 
             System.out.print("Password:");
             password = userInput.nextLine();
