@@ -12,7 +12,7 @@ import jakarta.persistence.EntityNotFoundException;
 import jakarta.persistence.criteria.CriteriaQuery;
 import jakarta.persistence.criteria.Root;
 import java.util.List;
-import org.logic.logic_classes.Action;
+import org.logic.domain.Action;
 import org.persistence.exceptions.NonexistentEntityException;
 
 /**

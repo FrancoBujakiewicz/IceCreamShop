@@ -11,11 +11,11 @@ import jakarta.persistence.Query;
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.persistence.criteria.CriteriaQuery;
 import jakarta.persistence.criteria.Root;
-import org.logic.logic_classes.Flavor;
+import org.logic.domain.Flavor;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-import org.logic.logic_classes.IceCream;
+import org.logic.domain.IceCream;
 import org.persistence.exceptions.NonexistentEntityException;
 
 /**

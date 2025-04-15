@@ -2,9 +2,9 @@ package org.persistence;
 
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
-import org.logic.logic_classes.Action;
-import org.logic.logic_classes.Rol;
-import org.logic.logic_classes.User;
+import org.logic.domain.Action;
+import org.logic.domain.Rol;
+import org.logic.domain.User;
 import org.persistence.jpa_controllers.*;
 
 public class PersistenceController {

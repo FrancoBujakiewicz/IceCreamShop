@@ -1,4 +1,4 @@
-package org.logic.logic_classes;
+package org.logic.domain;
 
 import jakarta.persistence.*;
 import java.io.Serializable;
