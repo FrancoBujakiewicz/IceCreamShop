@@ -87,7 +87,7 @@
                 </descriptorRefs>
                 <archive>
                     <manifest>
-                        <mainClass>org.logic.Main</mainClass>
+                        <mainClass>org.logic.IceCreamShop</mainClass>
                     </manifest>
                 </archive>
             </configuration>

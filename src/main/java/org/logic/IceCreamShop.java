@@ -2,11 +2,10 @@ package org.logic;
 
 import org.logic.domain.Rol;
 import org.logic.domain.User;
-
 import java.io.Console;
 import java.util.Scanner;
 
-public class Main {
+public class IceCreamShop {
 
     public static Scanner userInput = new Scanner(System.in);
     public static String password;
