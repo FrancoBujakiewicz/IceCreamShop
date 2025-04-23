@@ -2,6 +2,8 @@ package org.logic;
 
 import org.logic.domain.Rol;
 import org.logic.domain.User;
+import org.logic.sessions.UserSession;
+
 import java.io.Console;
 import java.util.Scanner;
 
@@ -14,7 +16,7 @@ public class IceCreamShop {
 
         // Using Console class to censor passwords inputs and similar
         // Comment this line if not works in your terminal or IDE
-        Console console = System.console(); if(console == null) { System.exit(1); }
+        // Console console = System.console(); if(console == null) { System.exit(1); }
 
         LogicController LogicCtl = new LogicController();
 
@@ -26,7 +28,7 @@ public class IceCreamShop {
         System.out.println("                                                Welcome!                                               ");
 
         User user;
-
+        /*
         do {
 
             System.out.print("Username:");
@@ -64,7 +66,10 @@ public class IceCreamShop {
         }
 
         userInput.close();
-        
+        */
+
+        UserSession.printOptions();
+
     }
     
  }
