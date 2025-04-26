@@ -1,11 +1,11 @@
 
  package org.logic;
 
- import org.logic.domain.Rol;
  import org.logic.domain.User;
  import org.logic.sessions.UserSession;
+ import org.logic.sessions.enums.AdminAction;
+ import org.logic.sessions.enums.UserAction;
 
- import java.io.Console;
  import java.util.Scanner;
 
  public class IceCreamShop
@@ -30,6 +30,20 @@
 
         System.out.println("--------------------------------------------[ IceCreamShop ]-------------------------------------------");
         System.out.println(" ");
+
+        System.out.println("                                          Have you an account?                                         ");
+        System.out.println(" ");
+
+        System.out.println("[Yes->y] [No->enter any]:");
+        String userChoice = userInput.nextLine();
+
+        if(!userChoice.equals("y"))
+
+        {
+
+
+
+        }
 
         User user;
 
@@ -57,6 +71,8 @@
 
         System.out.println(" ");
         System.out.println("                                              [ Welcome! ]                                             ");
+
+
 
         /*
         Rol userRol = user.getRole();

@@ -2,6 +2,9 @@
  package org.logic.sessions;
 
  import org.logic.LogicController;
+ import org.logic.sessions.enums.AdminAction;
+ import org.logic.sessions.enums.UserAction;
+
  import java.util.Scanner;
 
  public class UserSession
@@ -24,7 +27,7 @@
 
      // Printing the options
      System.out.println(" ");
-     for(UserAction act : UserAction.values()) { System.out.print("["+(act.ordinal()+1)+"]"+ act.getValue()+ " "); }
+     for(AdminAction act : AdminAction.values()){ System.out.println((act.ordinal()+1)+")"+ act.getAction()+ " "); }
 
      System.out.println(" ");
      System.out.print("Enter you want operation number:");
