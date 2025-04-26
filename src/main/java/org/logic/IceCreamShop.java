@@ -1,18 +1,23 @@
-package org.logic;
 
-import org.logic.domain.Rol;
-import org.logic.domain.User;
-import org.logic.sessions.UserSession;
+ package org.logic;
 
-import java.io.Console;
-import java.util.Scanner;
+ import org.logic.domain.Rol;
+ import org.logic.domain.User;
+ import org.logic.sessions.UserSession;
 
-public class IceCreamShop {
+ import java.io.Console;
+ import java.util.Scanner;
+
+ public class IceCreamShop
+
+ {
 
     public static Scanner userInput = new Scanner(System.in);
     public static String password;
 
-    public static void main (String[] args) throws Exception {
+    public static void main (String[] args) throws Exception
+
+    {
 
         // Using Console class to censor passwords inputs and similar
         // Comment this line if not works in your terminal or IDE
@@ -25,10 +30,9 @@ public class IceCreamShop {
 
         System.out.println("--------------------------------------------[ IceCreamShop ]-------------------------------------------");
         System.out.println(" ");
-        System.out.println("                                                Welcome!                                               ");
 
         User user;
-        /*
+
         do {
 
             System.out.print("Username:");
@@ -38,8 +42,6 @@ public class IceCreamShop {
 
         }
         while (user == null);
-
-        System.out.println(" ");
 
         do {
 
@@ -53,6 +55,10 @@ public class IceCreamShop {
         }
         while (!user.verifiedPassword(password, user.getPassword()));
 
+        System.out.println(" ");
+        System.out.println("                                              [ Welcome! ]                                             ");
+
+        /*
         Rol userRol = user.getRole();
 
         switch(userRol.getRol())
@@ -68,7 +74,7 @@ public class IceCreamShop {
         userInput.close();
         */
 
-        UserSession.printOptions();
+        UserSession.userOptions();
 
     }
     
