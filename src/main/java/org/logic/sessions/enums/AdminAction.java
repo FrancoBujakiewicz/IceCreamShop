@@ -1,7 +1,7 @@
 
  package org.logic.sessions.enums;
 
- public enum AdminAction
+ public enum AdminAction implements ActionToPrint
 
  {
 
@@ -29,6 +29,7 @@
 
    AdminAction(String action) { this.action = action; }
 
+   @Override
    public String getAction() { return action; }
 
  }

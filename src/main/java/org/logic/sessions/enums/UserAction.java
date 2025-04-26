@@ -1,7 +1,7 @@
 
  package org.logic.sessions.enums;
 
-  public enum UserAction
+  public enum UserAction implements ActionToPrint
 
   {
 
@@ -14,6 +14,7 @@
 
     UserAction(String action) { this.action = action; }
 
+    @Override
     public String getAction() { return action; }
 
   }

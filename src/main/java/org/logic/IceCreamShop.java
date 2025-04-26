@@ -1,6 +1,7 @@
 
  package org.logic;
 
+ import org.logic.domain.Rol;
  import org.logic.domain.User;
  import org.logic.sessions.UserSession;
  import org.logic.sessions.enums.AdminAction;
@@ -34,10 +35,10 @@
         System.out.println("                                          Have you an account?                                         ");
         System.out.println(" ");
 
-        System.out.println("[Yes->y] [No->enter any]:");
+        System.out.print("[Yes -> y] [No -> enter any]:");
         String userChoice = userInput.nextLine();
 
-        if(!userChoice.equals("y"))
+        if(!userChoice.equalsIgnoreCase("y"))
 
         {
 
@@ -72,25 +73,21 @@
         System.out.println(" ");
         System.out.println("                                              [ Welcome! ]                                             ");
 
+        String userRol = user.getRole().getRol();
 
-
-        /*
-        Rol userRol = user.getRole();
-
-        switch(userRol.getRol())
+        switch(userRol)
 
         {
 
-            case "admin" -> System.out.println("admin");
-
-            case "client" -> System.out.println("client");
+          case "admin" -> UserSession.printOptions(AdminAction.values());
+          case "user" -> UserSession.printOptions(UserAction.values());
 
         }
 
-        userInput.close();
-        */
 
-        UserSession.userOptions();
+        UserSession.userOptions(userRol);
+
+        userInput.close();
 
     }
     
