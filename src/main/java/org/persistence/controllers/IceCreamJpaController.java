@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package org.persistence.jpa_controllers;
+package org.persistence.controllers;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
@@ -24,10 +24,11 @@ import org.persistence.exceptions.NonexistentEntityException;
  */
 public class IceCreamJpaController implements Serializable {
 
+    private final EntityManagerFactory emf;
+
     public IceCreamJpaController(EntityManagerFactory emf) {
         this.emf = emf;
     }
-    private EntityManagerFactory emf = null;
 
     public EntityManager getEntityManager() {
         return emf.createEntityManager();

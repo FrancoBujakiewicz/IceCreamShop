@@ -1,16 +1,22 @@
 
  package org.logic.sessions.enums;
 
- public enum AdminAction implements ActionToPrint
+ public enum AdminAction implements UserAction
 
  {
-
-   // Simulating inherit from UserAction
-   Opt1(UserAction.Opt1.getAction()),
-   Opt2(UserAction.Opt2.getAction()),
-   Opt3(UserAction.Opt3.getAction()),
-
-   Opt4("Create rol"),
+/*
+   // "Inherit" from UserAction
+   Opt1(CommonAction.Opt1.getAction()),
+   Opt2(CommonAction.Opt2.getAction()),
+   Opt3(CommonAction.Opt3.getAction()),
+*/
+   Opt4("Create rol") {
+  @Override
+  public void userAction() {
+    System.out.println("pepe");
+  }
+};
+           /*,
    Opt5("Read rol"),
    Opt6("Update rol"),
    Opt7("Delete rol"),
@@ -24,6 +30,7 @@
    Opt13("Read User"),
    Opt14("Update User"),
    Opt15("Delete User");
+*/
 
    private final String action;
 

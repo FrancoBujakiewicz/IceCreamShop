@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package org.persistence.jpa_controllers;
+package org.persistence.controllers;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
@@ -12,30 +12,31 @@ import jakarta.persistence.EntityNotFoundException;
 import jakarta.persistence.criteria.CriteriaQuery;
 import jakarta.persistence.criteria.Root;
 import java.util.List;
-import org.logic.domain.Orden;
+import org.logic.domain.Size;
 import org.persistence.exceptions.NonexistentEntityException;
 
 /**
  *
  * @author franco
  */
-public class OrdenJpaController implements Serializable {
+public class SizeJpaController implements Serializable {
 
-    public OrdenJpaController(EntityManagerFactory emf) {
+    private final EntityManagerFactory emf;
+
+    public SizeJpaController(EntityManagerFactory emf) {
         this.emf = emf;
     }
-    private EntityManagerFactory emf = null;
 
     public EntityManager getEntityManager() {
         return emf.createEntityManager();
     }
 
-    public void create(Orden orden) {
+    public void create(Size size) {
         EntityManager em = null;
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            em.persist(orden);
+            em.persist(size);
             em.getTransaction().commit();
         } finally {
             if (em != null) {
@@ -44,19 +45,19 @@ public class OrdenJpaController implements Serializable {
         }
     }
 
-    public void edit(Orden orden) throws NonexistentEntityException, Exception {
+    public void edit(Size size) throws NonexistentEntityException, Exception {
         EntityManager em = null;
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            orden = em.merge(orden);
+            size = em.merge(size);
             em.getTransaction().commit();
         } catch (Exception ex) {
             String msg = ex.getLocalizedMessage();
             if (msg == null || msg.length() == 0) {
-                Long id = orden.getId();
-                if (findOrden(id) == null) {
-                    throw new NonexistentEntityException("The orden with id " + id + " no longer exists.");
+                Long id = size.getId();
+                if (findSize(id) == null) {
+                    throw new NonexistentEntityException("The size with id " + id + " no longer exists.");
                 }
             }
             throw ex;
@@ -72,14 +73,14 @@ public class OrdenJpaController implements Serializable {
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            Orden orden;
+            Size size;
             try {
-                orden = em.getReference(Orden.class, id);
-                orden.getId();
+                size = em.getReference(Size.class, id);
+                size.getId();
             } catch (EntityNotFoundException enfe) {
-                throw new NonexistentEntityException("The orden with id " + id + " no longer exists.", enfe);
+                throw new NonexistentEntityException("The size with id " + id + " no longer exists.", enfe);
             }
-            em.remove(orden);
+            em.remove(size);
             em.getTransaction().commit();
         } finally {
             if (em != null) {
@@ -88,19 +89,19 @@ public class OrdenJpaController implements Serializable {
         }
     }
 
-    public List<Orden> findOrdenEntities() {
-        return findOrdenEntities(true, -1, -1);
+    public List<Size> findSizeEntities() {
+        return findSizeEntities(true, -1, -1);
     }
 
-    public List<Orden> findOrdenEntities(int maxResults, int firstResult) {
-        return findOrdenEntities(false, maxResults, firstResult);
+    public List<Size> findSizeEntities(int maxResults, int firstResult) {
+        return findSizeEntities(false, maxResults, firstResult);
     }
 
-    private List<Orden> findOrdenEntities(boolean all, int maxResults, int firstResult) {
+    private List<Size> findSizeEntities(boolean all, int maxResults, int firstResult) {
         EntityManager em = getEntityManager();
         try {
             CriteriaQuery cq = em.getCriteriaBuilder().createQuery();
-            cq.select(cq.from(Orden.class));
+            cq.select(cq.from(Size.class));
             Query q = em.createQuery(cq);
             if (!all) {
                 q.setMaxResults(maxResults);
@@ -112,20 +113,20 @@ public class OrdenJpaController implements Serializable {
         }
     }
 
-    public Orden findOrden(Long id) {
+    public Size findSize(Long id) {
         EntityManager em = getEntityManager();
         try {
-            return em.find(Orden.class, id);
+            return em.find(Size.class, id);
         } finally {
             em.close();
         }
     }
 
-    public int getOrdenCount() {
+    public int getSizeCount() {
         EntityManager em = getEntityManager();
         try {
             CriteriaQuery cq = em.getCriteriaBuilder().createQuery();
-            Root<Orden> rt = cq.from(Orden.class);
+            Root<Size> rt = cq.from(Size.class);
             cq.select(em.getCriteriaBuilder().count(rt));
             Query q = em.createQuery(cq);
             return ((Long) q.getSingleResult()).intValue();

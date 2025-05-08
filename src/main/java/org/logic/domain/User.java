@@ -30,13 +30,12 @@ public class User implements Serializable {
     @Temporal(TemporalType.TIMESTAMP)
     private Date updated_at;
 
-    @ManyToOne
-    @JoinColumn
-    private Rol role;
+    @Column(length = 30)
+    private String role;
     
     public User() {}
 
-    public User(String username, Long phone_number, String password, Date created_at, Rol role) {
+    public User(String username, Long phone_number, String password, Date created_at, String role) {
 
         this.username = username;
         this.phone_number = phone_number;
@@ -75,9 +74,9 @@ public class User implements Serializable {
 
     public void setSalt(String salt) { this.salt = salt; }
 
-    public Rol getRole() { return role; }
+    public String getRole() { return role; }
 
-    public void setRole(Rol role) { this.role = role; }
+    public void setRole(String role) { this.role = role; }
 
     public boolean verifiedPassword(String password, String password_hash)
 

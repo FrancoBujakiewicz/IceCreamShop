@@ -1,21 +1,24 @@
 
  package org.logic.sessions.enums;
 
-  public enum UserAction implements ActionToPrint
+ public interface UserAction
 
-  {
+ {
 
-    // All users have these actions without care its role
-    Opt1("Change username"),
-    Opt2("Change password"),
-    Opt3("Log out");
+   String getAction();
+   void userAction();
 
-    private final String action;
+     static  <T extends Enum<T> & UserAction> T getOption(Class<T> enumClass, int ordinal)
 
-    UserAction(String action) { this.action = action; }
+     {
+         T[] values = enumClass.getEnumConstants();
 
-    @Override
-    public String getAction() { return action; }
+         if (ordinal < 0 || ordinal >= values.length)
 
-  }
+         { throw new IllegalArgumentException("Invalid ordinal: " + ordinal); }
 
+         return values[ordinal];
+
+     }
+
+ }
