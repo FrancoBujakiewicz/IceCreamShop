@@ -1,7 +1,6 @@
 
  package org.logic.sessions;
 
- import org.logic.LogicController;
  import org.logic.sessions.enums.CommonAction;
  import org.logic.sessions.enums.UserAction;
 
@@ -12,9 +11,8 @@
  {
 
   static Scanner userInput = new Scanner(System.in);
-  LogicController LogicCtl = new LogicController();
 
-  public static <T extends Enum<T> & UserAction> void printOptions(Class<T> rolEnum)
+  public static <T extends Enum<T> & UserAction> void userOptions(Class<T> rolEnum)
 
   {
 
@@ -28,19 +26,37 @@
 
    System.out.println(" ");
    System.out.print("Enter you want operation number:");
+   selectOption(rolEnum);
+
+  }
+
+  public static <T extends Enum<T> & UserAction> void selectOption(Class<T> rolEnum)
+
+  {
 
    boolean validChoice;
 
-   do
+   validChoice = false;
+
+   String userChoice = userInput.nextLine();
+   int option = 0;
+
+   if (userChoice != null && !userChoice.trim().isEmpty())
+
    {
 
-    validChoice = true;
+     try { option = Integer.parseInt(userChoice); validChoice = true; }
 
-    String userChoice = userInput.nextLine();
+     finally
+     {
 
+      if(validChoice){ getOption(CommonAction.class,(option-1)).userAction(); }
 
-   }
-   while(!validChoice);
+      else { System.out.println("Invalid option! Try again."); selectOption(rolEnum); }
+
+     }
+
+    }
 
   }
 

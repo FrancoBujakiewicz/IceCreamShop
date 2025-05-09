@@ -19,18 +19,14 @@
 
     {
 
-
-
         // Using Console class to censor passwords inputs and similar
         // Comment this line if not works in your terminal or IDE
         // Console console = System.console(); if(console == null) { System.exit(1); }
-/*
+
         LogicController LogicCtl = new LogicController();
 
         //Admin
         //1a2b3c4d5e6f7g8h9
-
-
 
         System.out.println("--------------------------------------------[ IceCreamShop ]-------------------------------------------");
         System.out.println(" ");
@@ -78,12 +74,15 @@
 
         String userRol = user.getRole();
 
-        UserSession.userOptions(userRol);
-
         userInput.close();
-*/
 
-        UserSession.getOption(CommonAction.class, 0).userAction();
+        switch(userRol)
+
+        {
+
+          case "admin" -> UserSession.userOptions(AdminAction.class);
+
+        }
 
     }
     
