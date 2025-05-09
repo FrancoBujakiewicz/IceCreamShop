@@ -1,36 +1,45 @@
 
  package org.logic.sessions.enums;
 
- import org.logic.domain.User;
-
  public enum CommonAction implements UserAction
+
+ {
+
+  // All users have these actions without care its role
+
+  Opt1("Change username")
 
   {
 
-    // All users have these actions without care its role
+   @Override
+   public void userAction() { System.out.print("d"); }
 
-    Opt1("Change username")
+  },
 
-     {
+  Opt2("Change password")
 
+  {
 
-      @Override
-      public void userAction() { System.out.print("d"); }
+   @Override
+   public void userAction() { System.out.print("d"); }
 
-     };
+  },
 
-     /*
+  Opt3("Log out")
 
-    Opt2("Change password"),
-    Opt3("Log out");
-*/
-    private final String action;
+  {
 
-    CommonAction(String action) { this.action = action; }
+   @Override
+   public void userAction() { System.out.print("d"); }
 
-    @Override
-    public String getAction() { return action; }
+  };
 
+   private final String action;
 
-  }
+   CommonAction(String action) { this.action = action; }
+
+   @Override
+   public String getAction() { return action; }
+
+ }
 

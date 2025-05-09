@@ -4,6 +4,7 @@
  import java.util.Scanner;
  import org.logic.domain.User;
  import org.logic.sessions.UserSession;
+ import org.logic.sessions.enums.AdminAction;
  import org.logic.sessions.enums.CommonAction;
  import org.logic.sessions.enums.UserAction;
 
@@ -81,7 +82,8 @@
 
         userInput.close();
 */
-        UserSession.printOptions(CommonAction.class);
+
+        UserSession.getOption(CommonAction.class, 0).userAction();
 
     }
     
