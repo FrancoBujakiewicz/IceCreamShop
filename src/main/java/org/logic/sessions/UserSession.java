@@ -30,7 +30,7 @@
 
   }
 
-  public static <T extends Enum<T> & UserAction> void selectOption(Class<T> rolEnum)
+  public static <T extends Enum<T>> void selectOption(Class<T> rolEnum)
 
   {
 
@@ -38,10 +38,10 @@
 
    validChoice = false;
 
-   String userChoice = userInput.nextLine();
+   String userChoice = userInput.nextLine().trim();
    int option = 0;
 
-   if (userChoice != null && !userChoice.trim().isEmpty())
+   if (!userChoice.isEmpty())
 
    {
 
@@ -68,7 +68,7 @@
 
    if (ordinal < 0 || ordinal >= values.length)
 
-   { throw new IllegalArgumentException("Invalid ordinal: " + ordinal); }
+   { throw new IllegalArgumentException("Invalid ordinal!: " + ordinal); }
 
    return values[ordinal];
 

@@ -13,7 +13,7 @@
  {
 
     public static Scanner userInput = new Scanner(System.in);
-    public static String password;
+
 
     public static void main (String[] args) throws Exception
 
@@ -24,6 +24,9 @@
         // Console console = System.console(); if(console == null) { System.exit(1); }
 
         LogicController LogicCtl = new LogicController();
+        String username;
+        User user;
+        String password;
 
         //Admin
         //1a2b3c4d5e6f7g8h9
@@ -35,22 +38,59 @@
         System.out.println(" ");
 
         System.out.print("[Yes -> y] [No -> enter any]:");
-        String userChoice = userInput.nextLine();
+        String userChoice = userInput.nextLine().trim();
 
         if(!userChoice.equalsIgnoreCase("y"))
 
         {
 
+            System.out.println("Create an account.");
 
+          do {
+
+              System.out.println("Username:");
+              username = userInput.nextLine().trim();
+
+              user = LogicCtl.findUserByUsername(username);
+
+              if(username.equals(user.getUsername()))
+              { System.out.println("Username already taken! Try again."); } else { break; }
+
+          }
+          while(true);
+
+          /*
+          do {
+
+              System.out.println("Phone number:");
+
+
+          }
+          while(true);
+          */
+
+          String passwdConfirm;
+
+          do {
+
+              System.out.println("Password (at least 8 characters):");
+              password = userInput.nextLine().trim();
+
+              System.out.println("Confirm the password:");
+              passwdConfirm = userInput.nextLine().trim();
+
+              if(!passwdConfirm.equals(password) || !(password.length() > 6))
+              { System.out.println("Invalid password! Try again."); } else { break; }
+
+          }
+          while (true);
 
         }
-
-        User user;
 
         do {
 
             System.out.print("Username:");
-            String username = userInput.nextLine();
+            username = userInput.nextLine().trim();
 
             user = LogicCtl.findUserByUsername(username);
 
@@ -64,7 +104,7 @@
             // password = new String(passwordChars);
 
             System.out.print("Password:");
-            password = userInput.nextLine();
+            password = userInput.nextLine().trim();
 
         }
         while (!user.verifiedPassword(password, user.getPassword()));
