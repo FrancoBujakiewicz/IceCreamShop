@@ -1,6 +1,7 @@
 
  package org.logic;
 
+ import java.util.Date;
  import java.util.Scanner;
  import org.logic.domain.User;
  import org.logic.sessions.UserSession;
@@ -27,6 +28,7 @@
         String username;
         User user;
         String password;
+        Long phoneNumber;
 
         //Admin
         //1a2b3c4d5e6f7g8h9
@@ -83,7 +85,13 @@
               { System.out.println("Invalid password! Try again."); } else { break; }
 
           }
-          while (true);
+          while(true);
+
+          System.out.println("Confirm the user creation? [Yes -> y] [No -> enter any]: ");
+          userChoice = userInput.nextLine().trim();
+
+          if((!userChoice.equalsIgnoreCase("y"))){ }
+          user = new User(username, phoneNumber, password, new Date(), "client");
 
         }
 

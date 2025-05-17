@@ -65,10 +65,10 @@
   {
 
    T[] values = enumClass.getEnumConstants();
-
+   
    if (ordinal < 0 || ordinal >= values.length)
 
-   { throw new IllegalArgumentException("Invalid ordinal!: " + ordinal); }
+   { System.out.println("Invalid ordinal!: " + ordinal); }
 
    return values[ordinal];
 
