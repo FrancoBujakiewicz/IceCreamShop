@@ -2,7 +2,6 @@
  package org.logic;
 
  import java.util.Date;
- import java.util.Scanner;
  import org.logic.domain.User;
  import org.logic.sessions.UserSession;
  import org.logic.sessions.enums.AdminAction;
@@ -13,18 +12,15 @@
 
  {
 
-    public static Scanner userInput = new Scanner(System.in);
-
-
     public static void main (String[] args) throws Exception
 
     {
-
+/*
         // Using Console class to censor passwords inputs and similar
         // Comment this line if not works in your terminal or IDE
         // Console console = System.console(); if(console == null) { System.exit(1); }
 
-        LogicController LogicCtl = new LogicController();
+        //LogicController LogicCtl = new LogicController();
         String username;
         User user;
         String password;
@@ -61,16 +57,6 @@
           }
           while(true);
 
-          /*
-          do {
-
-              System.out.println("Phone number:");
-
-
-          }
-          while(true);
-          */
-
           String passwdConfirm;
 
           do {
@@ -90,8 +76,8 @@
           System.out.println("Confirm the user creation? [Yes -> y] [No -> enter any]: ");
           userChoice = userInput.nextLine().trim();
 
-          if((!userChoice.equalsIgnoreCase("y"))){ }
-          user = new User(username, phoneNumber, password, new Date(), "client");
+          // if((!userChoice.equalsIgnoreCase("y"))){ }
+          // user = new User(username, phoneNumber, password, new Date(), "client");
 
         }
 
@@ -131,6 +117,9 @@
           case "admin" -> UserSession.userOptions(AdminAction.class);
 
         }
+*/
+
+        Onboarding.setPhoneNumber();
 
     }
     
